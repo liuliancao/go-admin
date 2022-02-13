@@ -1,0 +1,1984 @@
+* tests
+:PROPERTIES:
+:header-args: :var token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMzg3MDQ3OSwiaXNzIjoiZ2luLWJsb2cifQ.stIdvpFw5_LBrv7PQ6AZg2Br_eHphklxKVgi7vBpvG0"
+:END:
+** product
+*** product not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/product/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAxOTkzMSwiaXNzIjoiZ2luLWJsb2cifQ.Q0UhS4avNxZqM_kI7Nzfqnw8IA2zUxmU8ZHtsbLjDqY
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 40004,
+:   "msg": "产品不存在",
+:   "data": null
+: }
+*** product create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/product?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAxOTkzMSwiaXNzIjoiZ2luLWJsb2cifQ.Q0UhS4avNxZqM_kI7Nzfqnw8IA2zUxmU8ZHtsbLjDqY
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "description": "test1",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/product?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAxOTkzMSwiaXNzIjoiZ2luLWJsb2cifQ.Q0UhS4avNxZqM_kI7Nzfqnw8IA2zUxmU8ZHtsbLjDqY
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "description": "test1",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 40006,
+:   "msg": "添加产品失败",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/product?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAxOTkzMSwiaXNzIjoiZ2luLWJsb2cifQ.Q0UhS4avNxZqM_kI7Nzfqnw8IA2zUxmU8ZHtsbLjDqY
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+*** product query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/product/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 40004,
+:   "msg": "产品不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/product/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 3,
+    "CreatedAt": "2021-05-03T11:23:33+08:00",
+    "UpdatedAt": "2021-05-03T11:23:33+08:00",
+    "DeletedAt": null,
+    "name": "test1",
+    "description": "test1",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+**** get products
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/products?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "products": [
+      {
+        "ID": 3,
+        "CreatedAt": "2021-05-03T11:23:33+08:00",
+        "UpdatedAt": "2021-05-03T11:23:33+08:00",
+        "DeletedAt": null,
+        "name": "test1",
+        "description": "test1",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 5,
+        "CreatedAt": "2021-05-03T11:24:28+08:00",
+        "UpdatedAt": "2021-05-03T11:24:28+08:00",
+        "DeletedAt": null,
+        "name": "test2",
+        "description": "test2",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete product with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/product/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/product/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 40004,
+:   "msg": "产品不存在",
+:   "data": null
+: }
+** department
+*** department not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/department/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 30004,
+:   "msg": "部门不存在",
+:   "data": null
+: }
+*** department create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/department?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+Content-Type: application/json
+
+{
+  "name": "test1-department",
+  "description": "test1 department",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/department?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2 department",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/department?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 30006,
+:   "msg": "添加部门失败",
+:   "data": null
+: }
+
+*** department query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/department/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "2021-05-03T15:29:03+08:00",
+    "UpdatedAt": "2021-05-03T15:29:03+08:00",
+    "DeletedAt": null,
+    "name": "test1-department",
+    "description": "test1 department",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/department/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 30004,
+:   "msg": "部门不存在",
+:   "data": null
+: }
+**** get departments
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/departments?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "departments": [
+      {
+        "ID": 3,
+        "CreatedAt": "2021-05-03T11:23:33+08:00",
+        "UpdatedAt": "2021-05-03T11:23:33+08:00",
+        "DeletedAt": null,
+        "name": "test1",
+        "description": "test1",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 5,
+        "CreatedAt": "2021-05-03T11:24:28+08:00",
+        "UpdatedAt": "2021-05-03T11:24:28+08:00",
+        "DeletedAt": null,
+        "name": "test2",
+        "description": "test2",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete department with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/department/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 30004,
+:   "msg": "部门不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/department/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/department/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 30004,
+:   "msg": "部门不存在",
+:   "data": null
+: }
+** role
+*** role not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/role/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 50004,
+:   "msg": "角色不存在",
+:   "data": null
+: }
+*** role create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/role?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+Content-Type: application/json
+
+{
+  "name": "test1-role",
+  "description": "test1 role",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/role?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2 role",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/role?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 50006,
+:   "msg": "添加角色失败",
+:   "data": null
+: }
+
+*** role query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/role/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 5,
+    "CreatedAt": "2021-05-03T17:10:51+08:00",
+    "UpdatedAt": "2021-05-03T17:10:51+08:00",
+    "DeletedAt": null,
+    "name": "test1-role",
+    "description": "test1 role",
+    "permissions": "",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/role/6?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 6,
+    "CreatedAt": "2021-05-03T17:10:54+08:00",
+    "UpdatedAt": "2021-05-03T17:10:54+08:00",
+    "DeletedAt": null,
+    "name": "test2",
+    "description": "test2 role",
+    "permissions": "",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+**** get roles
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/roles?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "roles": [
+      {
+        "ID": 5,
+        "CreatedAt": "2021-05-03T17:10:51+08:00",
+        "UpdatedAt": "2021-05-03T17:10:51+08:00",
+        "DeletedAt": null,
+        "name": "test1-role",
+        "description": "test1 role",
+        "permissions": "",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 6,
+        "CreatedAt": "2021-05-03T17:10:54+08:00",
+        "UpdatedAt": "2021-05-03T17:10:54+08:00",
+        "DeletedAt": null,
+        "name": "test2",
+        "description": "test2 role",
+        "permissions": "",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete role with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/role/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 50004,
+:   "msg": "角色不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/role/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/role/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 50004,
+:   "msg": "角色不存在",
+:   "data": null
+: }
+** tag
+*** tag not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/tag/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 80004,
+:   "msg": "标签不存在",
+:   "data": null
+: }
+*** tag create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/tag?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+Content-Type: application/json
+
+{
+  "name": "test1-tag",
+  "description": "test1 tag",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/tag?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2 tag",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/tag?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 80006,
+:   "msg": "添加标签失败",
+:   "data": null
+: }
+
+*** tag query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/tag/4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 4,
+    "CreatedAt": "2021-05-03T17:13:00+08:00",
+    "UpdatedAt": "2021-05-03T17:13:00+08:00",
+    "DeletedAt": null,
+    "name": "test1-tag",
+    "description": "test1 tag",
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/tag/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 5,
+    "CreatedAt": "2021-05-03T17:13:04+08:00",
+    "UpdatedAt": "2021-05-03T17:13:04+08:00",
+    "DeletedAt": null,
+    "name": "test2",
+    "description": "test2 tag",
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+**** get tags
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/tags?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "tags": [
+      {
+        "ID": 4,
+        "CreatedAt": "2021-05-03T17:13:00+08:00",
+        "UpdatedAt": "2021-05-03T17:13:00+08:00",
+        "DeletedAt": null,
+        "name": "test1-tag",
+        "description": "test1 tag",
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 5,
+        "CreatedAt": "2021-05-03T17:13:04+08:00",
+        "UpdatedAt": "2021-05-03T17:13:04+08:00",
+        "DeletedAt": null,
+        "name": "test2",
+        "description": "test2 tag",
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete tag with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/tag/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 80004,
+:   "msg": "标签不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/tag/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/tag/5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 80004,
+:   "msg": "标签不存在",
+:   "data": null
+: }
+** cluster
+*** cluster not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/cluster/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 60004,
+:   "msg": "集群不存在",
+:   "data": null
+: }
+*** cluster create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/cluster?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+Content-Type: application/json
+
+{
+  "name": "test1-cluster",
+  "description": "test1 cluster",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/cluster?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2 cluster",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/cluster?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "description": "test2",
+  "status": 1,
+  "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 60006,
+:   "msg": "添加集群失败",
+:   "data": null
+: }
+
+*** cluster query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/cluster/4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 60004,
+:   "msg": "集群不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/cluster/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "2021-05-03T17:14:32+08:00",
+    "UpdatedAt": "2021-05-03T17:14:32+08:00",
+    "DeletedAt": null,
+    "name": "test1-cluster",
+    "description": "test1 cluster",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+**** get clusters
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/clusters?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "clusters": [
+      {
+        "ID": 1,
+        "CreatedAt": "2021-05-03T17:14:32+08:00",
+        "UpdatedAt": "2021-05-03T17:14:32+08:00",
+        "DeletedAt": null,
+        "name": "test1-cluster",
+        "description": "test1 cluster",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 2,
+        "CreatedAt": "2021-05-03T17:14:36+08:00",
+        "UpdatedAt": "2021-05-03T17:14:36+08:00",
+        "DeletedAt": null,
+        "name": "test2",
+        "description": "test2 cluster",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete cluster with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/cluster/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 60004,
+:   "msg": "集群不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/cluster/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMDAzNDY5MywiaXNzIjoiZ2luLWJsb2cifQ.ccbthVTevhwJlbGtO0-n9NS9Io_MXnifxbOOsg1XjXM
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/cluster/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 60004,
+:   "msg": "集群不存在",
+:   "data": null
+: }
+** host
+*** host not exist
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/host/1
+Authorization: ${token}
+#+end_src
+
+
+#+RESULTS:
+: {
+:   "code": 70004,
+:   "msg": "主机不存在",
+:   "data": null
+: }
+
+*** host create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/host
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "hostname": "test1.com",
+    "os": "linux",
+    "ip": "172.1.2.3",
+    "tid": 1,
+    "cores": 1,
+    "status": 1,
+    "description": "test1.com",
+    "extras": "{\"test\":\"bbbbccc\"}",
+    "uptime": 123424,
+    "created_by": 1
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": 1
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/host
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "hostname": "test2.idc.com",
+    "os": "Win2021",
+    "tid": 2,
+    "ip": "192.168.0.50,192.168.8.8,223.223.223.223",
+    "status": 1,
+    "description": "test1.idc.com",
+    "extras": "test",
+    "uptime": "1h",
+    "created_by": "lqx"
+
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":2}
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/host?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+Content-Type: application/json
+
+{
+    "hostname": "test3.idc.com",
+    "os": "Win2021",
+    "htype": "idc",
+    "ip": "192.168.0.50",
+    "status": 1,
+    "description": "test1.idc.com",
+    "extras": "test",
+    "uptime": "1h",
+    "created_by": "lqx"
+
+}
+
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 70006,
+:   "msg": "添加主机失败",
+:   "data": null
+: }
+
+*** host query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/host/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "2021-05-03T17:55:19+08:00",
+    "UpdatedAt": "2021-05-03T17:55:19+08:00",
+    "DeletedAt": null,
+    "hostname": "test1.com",
+    "os": "Centos7",
+    "htype": "aliyun",
+    "ip": "172.1.2.3",
+    "status": 1,
+    "description": "test1.com",
+    "extras": "test",
+    "uptime": "1h",
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/host/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTEwNzA1MywiaXNzIjoiZ2luLWJsb2cifQ.Ai4tDODx-eG2X7YDfdsoKPM0nXiL1rR4zEUpy5SWnC8
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "2021-05-03T17:14:32+08:00",
+    "UpdatedAt": "2021-05-03T17:14:32+08:00",
+    "DeletedAt": null,
+    "name": "test1-host",
+    "description": "test1 host",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+**** get hosts
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/hosts?pagenum=1&pagesize=10
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "hosts": [
+      {
+        "id": 4,
+        "hostname": "test1",
+        "htype": "office",
+        "os": "windows",
+        "ip": "192.168.0.245",
+        "extras": "",
+        "status": 1,
+        "description": "1321432",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 1,
+        "hostname": "test1.com",
+        "htype": "office",
+        "os": "linux",
+        "ip": "172.1.2.3",
+        "extras": "{\"test\":\"bbbbccc\"}",
+        "status": 1,
+        "description": "test1.com",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 5,
+        "hostname": "test2",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.244",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "1,2",
+        "cluster": "cluster2,testcluster",
+        "aid": "",
+        "app": "cf-game,cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 2,
+        "hostname": "test2.idc.com",
+        "htype": "aliyun",
+        "os": "windows",
+        "ip": "192.168.0.50,192.168.8.8,223.223.223.223",
+        "extras": "test",
+        "status": 1,
+        "description": "test1.idc.com",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 6,
+        "hostname": "test3",
+        "htype": "office",
+        "os": "windows",
+        "ip": "192.168.0.245",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 3,
+        "hostname": "test4",
+        "htype": "aliyun",
+        "os": "windows",
+        "ip": "192.168.0.169",
+        "extras": "",
+        "status": 1,
+        "description": "fasdfsa",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 7,
+        "hostname": "test5",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.245",
+        "extras": "",
+        "status": 1,
+        "description": "321",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 8,
+        "hostname": "test6",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.246",
+        "extras": "",
+        "status": 1,
+        "description": "43124",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 9,
+        "hostname": "test7",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.167",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 10,
+        "hostname": "test8",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.248",
+        "extras": "",
+        "status": 1,
+        "description": "321",
+        "cid": "2",
+        "cluster": "cluster2",
+        "aid": "",
+        "app": "cf-game",
+        "pid": "",
+        "product": "sea of crafts"
+      }
+    ],
+    "total": 11
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/hosts?cid=1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "hosts": [
+      {
+        "id": 4,
+        "hostname": "test1",
+        "htype": "office",
+        "os": "windows",
+        "ip": "192.168.0.245",
+        "extras": "",
+        "status": 1,
+        "description": "1321432",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 5,
+        "hostname": "test2",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.244",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 6,
+        "hostname": "test3",
+        "htype": "office",
+        "os": "windows",
+        "ip": "192.168.0.245",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      },
+      {
+        "id": 11,
+        "hostname": "test9",
+        "htype": "aliyun",
+        "os": "linux",
+        "ip": "192.168.0.249",
+        "extras": "",
+        "status": 1,
+        "description": "test4 desc",
+        "cid": "1",
+        "cluster": "testcluster",
+        "aid": "",
+        "app": "cf-master",
+        "pid": "",
+        "product": "sea of crafts"
+      }
+    ],
+    "total": 11
+  }
+}
+#+end_example
+
+**** delete host with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/host/3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTExNDg2OSwiaXNzIjoiZ2luLWJsb2cifQ.4yraXQ2n5t_kCUN8tcZIPOwu3ijWQMY65ebSGpn6_w4
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 70004,
+:   "msg": "主机不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/host/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTExNDg2OSwiaXNzIjoiZ2luLWJsb2cifQ.4yraXQ2n5t_kCUN8tcZIPOwu3ijWQMY65ebSGpn6_w4
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/host/2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjIxMjMyZjI5N2E1N2E1YTc0Mzg5NGEwZTRhODAxZmMzIiwicGFzc3dvcmQiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMyIsImV4cCI6MTYyMTExNDg2OSwiaXNzIjoiZ2luLWJsb2cifQ.4yraXQ2n5t_kCUN8tcZIPOwu3ijWQMY65ebSGpn6_w4
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 70004,
+:   "msg": "主机不存在",
+:   "data": null
+: }
+** user
+*** user not exist
+#+begin_src http
+GET http://op.liuliancao.com/api/v1/user/1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "0001-01-01T00:00:00Z",
+    "UpdatedAt": "0001-01-01T00:00:00Z",
+    "DeletedAt": null,
+    "d_id": 0,
+    "username": "admin",
+    "password": "admin",
+    "gender": "dummy",
+    "phone": "",
+    "mail": "",
+    "token": "",
+    "status": 1,
+    "created_by": "system",
+    "updated_by": ""
+  }
+}
+#+end_example
+*** user create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/user
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 8,
+    "username": "admin",
+    "password": "admin",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90006,
+:   "msg": "添加用户失败",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/user
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "username": "admin",
+    "password": "admin",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/user
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "username": "test",
+    "password": "test",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/user
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "username": "wagent",
+    "password": "wagent",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":null}
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/user
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "username": "admin",
+    "password": "admin",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":null}
+
+
+*** user query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/user/1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "0001-01-01T00:00:00Z",
+    "UpdatedAt": "0001-01-01T00:00:00Z",
+    "DeletedAt": null,
+    "d_id": 0,
+    "username": "admin",
+    "tid": "",
+    "password": "",
+    "gender": "dummy",
+    "phone": "",
+    "mail": "",
+    "token": "",
+    "status": 1,
+    "created_by": 1,
+    "updated_by": 1
+  }
+}
+#+end_example
+
+#+RESULTS:
+**** get users
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/users
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "users": [
+      {
+        "id": "1",
+        "department": "",
+        "username": "admin",
+        "usertype": "",
+        "gender": "dummy",
+        "phone": "",
+        "mail": "",
+        "status": "1",
+        "created_by": "admin",
+        "updated_by": "admin"
+      },
+      {
+        "id": "2",
+        "department": "admin",
+        "username": "wagent",
+        "usertype": "",
+        "gender": "male",
+        "phone": "12345",
+        "mail": "admin@admin",
+        "status": "1",
+        "created_by": "",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete user with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/user/8
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90004,
+:   "msg": "用户不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/user/3
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+ #+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/user/3
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90004,
+:   "msg": "用户不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/user/1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+** appenv
+*** appenv not exist
+#+begin_src http
+GET http://op.liuliancao.com/api/v1/appenv/1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 42004,
+:   "msg": "环境不存在",
+:   "data": null
+: }
+*** appenv create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/appenv
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "name": "预发",
+    "description": "预发环境",
+     "created_by": 1
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/appenv
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "name": "线上",
+    "description": "线上环境",
+     "created_by": 1
+
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/appenv
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "name": "测试",
+    "description": "测试环境",
+     "created_by": 1
+
+}
+
+
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/appenv
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "appenvname": "wagent",
+    "password": "wagent",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":null}
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/appenv
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "d_id": 1,
+    "appenvname": "admin",
+    "password": "admin",
+    "gender": "male",
+    "status": 1,
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "created_by": "lqx"
+}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90006,
+:   "msg": "添加用户失败、指定部门不存在、用户重复",
+:   "data": null
+: }
+
+
+*** appenv query
+**** select by id
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/appenv/1
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "ID": 1,
+    "CreatedAt": "2021-05-07T18:38:32+08:00",
+    "UpdatedAt": "2021-05-07T18:38:32+08:00",
+    "DeletedAt": null,
+    "d_id": 1,
+    "appenvname": "admin",
+    "password": "admin",
+    "gender": "male",
+    "phone": "12345",
+    "mail": "admin@admin",
+    "token": "12345",
+    "status": 1,
+    "created_by": "lqx",
+    "updated_by": ""
+  }
+}
+#+end_example
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/appenv/8
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90004,
+:   "msg": "用户不存在",
+:   "data": null
+: }
+**** get appenvs
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/appenvs
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "appenvs": [
+      {
+        "ID": 1,
+        "CreatedAt": "2021-05-07T18:38:32+08:00",
+        "UpdatedAt": "2021-05-07T18:38:32+08:00",
+        "DeletedAt": null,
+        "d_id": 1,
+        "appenvname": "admin",
+        "password": "admin",
+        "gender": "male",
+        "phone": "12345",
+        "mail": "admin@admin",
+        "token": "12345",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      },
+      {
+        "ID": 3,
+        "CreatedAt": "2021-05-07T18:40:51+08:00",
+        "UpdatedAt": "2021-05-07T18:40:51+08:00",
+        "DeletedAt": null,
+        "d_id": 1,
+        "appenvname": "test",
+        "password": "test",
+        "gender": "male",
+        "phone": "12345",
+        "mail": "admin@admin",
+        "token": "12345",
+        "status": 1,
+        "created_by": "lqx",
+        "updated_by": ""
+      }
+    ]
+  }
+}
+#+end_example
+**** delete appenv with id
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/appenv/8
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90004,
+:   "msg": "用户不存在",
+:   "data": null
+: }
+#+begin_src http :pretty
+DELETE http://op.liuliancao.com/api/v1/appenv/3
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": null
+: }
+
+ #+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/appenv/3
+Authorization: ${token}
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 90004,
+:   "msg": "用户不存在",
+:   "data": null
+: }
+** clusterhost
+*** add clusterhost
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/cluster/host
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "cid": 1,
+    "hid": 1
+}
+
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": 1
+: }
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/cluster/host
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "cid": 2,
+    "hid": 1
+}
+
+#+end_src
+
+#+RESULTS:
+: {
+:   "code": 200,
+:   "msg": "ok",
+:   "data": 2
+: }
+** app
+*** create
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/app
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "name": "testapp1",
+    "pid": 1,
+    "eid":1,
+    "parent":"",
+    "description":"lqx test app.",
+    "created_by": 1,
+    "status":1
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":null}
+
+#+begin_src http :pretty
+POST http://op.liuliancao.com/api/v1/app
+Authorization: ${token}
+Content-Type: application/json
+
+{
+    "name": "testapp2",
+    "pid": 1,
+    "eid":2,
+    "parent":"",
+    "description":"lqx test app2",
+    "created_by": 1,
+    "status":1
+}
+#+end_src
+
+#+RESULTS:
+: {"code":200,"msg":"ok","data":null}
+#+begin_src http :pretty
+GET http://op.liuliancao.com/api/v1/apps?pid=2
+Authorization: ${token}
+Content-Type: application/json
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "apps": [
+      {
+        "ID": 3,
+        "CreatedAt": "2021-05-26T14:37:47+08:00",
+        "UpdatedAt": "2021-05-26T14:37:47+08:00",
+        "DeletedAt": null,
+        "name": "cf-master",
+        "pid": 2,
+        "eid": 2,
+        "parent": 0,
+        "description": "管理game服务，对外提供链接",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 0
+      },
+      {
+        "ID": 4,
+        "CreatedAt": "2021-05-26T14:39:01+08:00",
+        "UpdatedAt": "2021-05-26T14:39:01+08:00",
+        "DeletedAt": null,
+        "name": "cf-game",
+        "pid": 2,
+        "eid": 2,
+        "parent": 0,
+        "description": "用于沉浮多人战斗服务",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 0
+      },
+      {
+        "ID": 5,
+        "CreatedAt": "2021-05-26T14:39:16+08:00",
+        "UpdatedAt": "2021-05-26T14:39:16+08:00",
+        "DeletedAt": null,
+        "name": "cf-website",
+        "pid": 2,
+        "eid": 2,
+        "parent": 0,
+        "description": "沉浮官网",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 0
+      },
+      {
+        "ID": 6,
+        "CreatedAt": "2021-05-26T14:39:47+08:00",
+        "UpdatedAt": "2021-05-26T14:39:47+08:00",
+        "DeletedAt": null,
+        "name": "cf-web",
+        "pid": 2,
+        "eid": 2,
+        "parent": 0,
+        "description": "沉浮游戏内部合成背包、login等功能",
+        "status": 1,
+        "created_by": 1,
+        "updated_by": 0
+      }
+    ]
+  }
+}
+#+end_example
